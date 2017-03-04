@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <title>Zeitsprünge</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+
+<script>
+    var map = L.map('map').setView([49.14224635671938, 9.218666553497314], 14);
+
+    var locations = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {
+                    "Anker": "",
+                    "Bild-URL": "http://heilbronn.apps-1and1.net/wp-content/uploads/K1024_DSC00728-2-1200x762.jpg",
+                    "Strasse": "Deutschhofstrasse 1",
+                    "Ort": "",
+                    "Beschreibung": "Adlerbrauerei ",
+                    "Blickrichtung": "210",
+                    "Position Laengengrad": "9,21848",
+                    "Position Breitengrad": "49,14032"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        9.21848,
+                        49.14032
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "Anker": "http://heilbronn.apps-1and1.net/zeitsprung#synagoge-1938",
+                    "Bild-URL": "",
+                    "Strasse": "Allee",
+                    "Ort": "Heilbronn",
+                    "Beschreibung": "Synagoge und neue Post",
+                    "Blickrichtung": "140",
+                    "Position Laengengrad": "9,22164",
+                    "Position Breitengrad": "49,14075"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        9.22164,
+                        49.14075
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "Anker": "http://heilbronn.apps-1and1.net/zeitsprung#rathaus45",
+                    "Bild-URL": "",
+                    "Strasse": "Marktplatz",
+                    "Ort": "Heilbronn",
+                    "Beschreibung": "Rathaus 1945",
+                    "Blickrichtung": "325",
+                    "Position Laengengrad": "9,21888",
+                    "Position Breitengrad": "49,14211"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        9.21888,
+                        49.14211
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "Anker": "",
+                    "Bild-URL": "http://heilbronn.apps-1and1.net/wp-content/uploads/kilian-Mix-1-800x631.jpg",
+                    "Strasse": "Kiliansplatz",
+                    "Ort": "Heilbronn",
+                    "Beschreibung": "Kilianskirche, Heilbronn",
+                    "Blickrichtung": "320",
+                    "Position Laengengrad": "9,21990",
+                    "Position Breitengrad": "49,14119"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        9.2199,
+                        49.14119
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "Anker": "http://heilbronn.apps-1and1.net/193-2/suelmer-nach-nord",
+                    "Bild-URL": "",
+                    "Strasse": "Sülmerstrasse",
+                    "Ort": "Heilbronn",
+                    "Beschreibung": "Blick von der Kaiserstrasse in die Sülmerstrasse",
+                    "Blickrichtung": "25",
+                    "Position Laengengrad": "9,22021",
+                    "Position Breitengrad": "49,14207"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        9.22021,
+                        49.14207
+                    ]
+                }
+            }
+        ]
+    };
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        id: 'mapbox.light'
+    }).addTo(map);
+
+    function onEachFeature(feature, layer) {
+        var popupContent = "<p>" + feature.properties['Strasse'] + '</p><p>' + feature.properties['Beschreibung'] + "</p>";
+        if(feature.properties['Bild-URL']) {
+            popupContent += "<p><img src='" + feature.properties['Bild-URL'] + "' style='max-width:80vw;width:400px;'></p>";
+        }
+        if(feature.properties['Anker']) {
+            popupContent = '<a href="' + feature.properties['Anker'] + '">' + popupContent + '</a>';
+        }
+        layer.bindPopup(popupContent, {
+            maxWidth: 600
+        });
+    }
+
+    L.geoJSON([locations], {
+        style: function (feature) {
+            return feature.properties && feature.properties.style;
+        },
+
+        onEachFeature: onEachFeature,
+
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, {
+                radius: 8,
+                fillColor: "#ff7800",
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
+            });
+        }
+    }).addTo(map);
+</script>
+
+</body>
+</html>

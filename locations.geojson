@@ -1,0 +1,105 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Anker": "",
+                "Bild-URL": "http://heilbronn.apps-1and1.net/wp-content/uploads/K1024_DSC00728-2-1200x762.jpg",
+                "Strasse": "Deutschhofstrasse 1",
+                "Ort": "",
+                "Beschreibung": "Adlerbrauerei ",
+                "Blickrichtung": "210",
+                "Position Laengengrad": "9,21848",
+                "Position Breitengrad": "49,14032"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.21848,
+                    49.14032
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Anker": "http://heilbronn.apps-1and1.net/zeitsprung#synagoge-1938",
+                "Bild-URL": "",
+                "Strasse": "Allee",
+                "Ort": "Heilbronn",
+                "Beschreibung": "Synagoge und neue Post",
+                "Blickrichtung": "140",
+                "Position Laengengrad": "9,22164",
+                "Position Breitengrad": "49,14075"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.22164,
+                    49.14075
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Anker": "http://heilbronn.apps-1and1.net/zeitsprung#rathaus45",
+                "Bild-URL": "",
+                "Strasse": "Marktplatz",
+                "Ort": "Heilbronn",
+                "Beschreibung": "Rathaus 1945",
+                "Blickrichtung": "325",
+                "Position Laengengrad": "9,21888",
+                "Position Breitengrad": "49,14211"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.21888,
+                    49.14211
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Anker": "",
+                "Bild-URL": "http://heilbronn.apps-1and1.net/wp-content/uploads/kilian-Mix-1-800x631.jpg",
+                "Strasse": "Kiliansplatz",
+                "Ort": "Heilbronn",
+                "Beschreibung": "Kilianskirche, Heilbronn",
+                "Blickrichtung": "320",
+                "Position Laengengrad": "9,21990",
+                "Position Breitengrad": "49,14119"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.2199,
+                    49.14119
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Anker": "http://heilbronn.apps-1and1.net/193-2/suelmer-nach-nord",
+                "Bild-URL": "",
+                "Strasse": "Sülmerstrasse",
+                "Ort": "Heilbronn",
+                "Beschreibung": "Blick von der Kaiserstrasse in die Sülmerstrasse",
+                "Blickrichtung": "25",
+                "Position Laengengrad": "9,22021",
+                "Position Breitengrad": "49,14207"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.22021,
+                    49.14207
+                ]
+            }
+        }
+    ]
+}
