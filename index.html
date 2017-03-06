@@ -143,9 +143,6 @@
 
     function onEachFeature(feature, layer) {
         var popupContent = "<p>" + feature.properties['Strasse'] + '</p><p>' + feature.properties['Beschreibung'] + "</p>";
-        if(feature.properties['Bild-URL']) {
-            popupContent += "<p><img src='" + feature.properties['Bild-URL'] + "' style='max-width:80vw;width:400px;'></p>";
-        }
         if(feature.properties['Anker']) {
             popupContent = '<a href="' + feature.properties['Anker'] + '">' + popupContent + '</a>';
         }
