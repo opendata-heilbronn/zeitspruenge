@@ -1,6 +1,11 @@
-Anker,Bild-URL,Straße,Ort,Beschreibung,Blickrichtung,Position Laengengrad,Position Breitengrad
-,http://heilbronn.apps-1and1.net/wp-content/uploads/K1024_DSC00728-2-1200x762.jpg,Deutschhofstrasse 1,,Adlerbrauerei ,210,"9,21848","49,14032"
-http://heilbronn.apps-1and1.net/zeitsprung#synagoge-1938,,Allee,Heilbronn,Synagoge und neue Post,140,"9,22164","49,14075"
-http://heilbronn.apps-1and1.net/zeitsprung#rathaus45,,Marktplatz,Heilbronn,Rathaus 1945,325,"9,21888","49,14211"
-,http://heilbronn.apps-1and1.net/wp-content/uploads/kilian-Mix-1-800x631.jpg,Kiliansplatz,Heilbronn,"Kilianskirche, Heilbronn",320,"9,21990","49,14119"
-http://heilbronn.apps-1and1.net/193-2/suelmer-nach-nord,,Sülmerstrasse,Heilbronn,Blick von der Kaiserstrasse in die Sülmerstrasse,25,"9,22021","49,14207"
+Anker,Bild-URL,Bild-URL 2,Strasse,Ort,Beschreibung,Blickrichtung,Position Laengengrad,Position Breitengrad
+http://heilbronn.apps-1and1.net/allee,,,Allee,Heilbronn,Kapitel Allee,,"9,22208","49,14126"
+http://heilbronn.apps-1and1.net/bahnhof,,,,Heilbronn,Kapitel Bahnhofsgegend,,"9,20892","49,14252"
+http://heilbronn.apps-1and1.net/fleiner,,,Fleinerstr,Heilbronn,Kapitel Fleinerstrasse,,"9,21912","49,14084"
+http://heilbronn.apps-1and1.net/kilianskirche,,,,Heilbronn,Kapitel Kilianskirche,,"9,21944","49,14171"
+http://heilbronn.apps-1and1.net/kiliansplatz,,,Kiliansplatz,Heilbronn,Kapitel Kiliansplatz,,"9,21977","49,14129"
+http://heilbronn.apps-1and1.net/marktplatz,,,Marktplatz,Heilbronn,Kapitel Marktplatz,,"9,21866","49,14225"
+http://heilbronn.apps-1and1.net/neckarufer,,,,Heilbronn,Kapitel Neckarufer,,"9,21463","49,14123"
+http://heilbronn.apps-1and1.net/kaiserstrasse,,,Kaiserstrasse,Heilbronn,Kapitel obere Kaiserstrasse,,"9,22113","49,14171"
+http://heilbronn.apps-1and1.net/sulmerstrasse,,,Sülmerstr,Heilbronn,Kapitel Sülmerstrasse,,"9,22075","49,14350"
+http://heilbronn.apps-1and1.net/untere-kaiserstrasse,,,Kaiserstrasse,Heilbronn,Kapitel untere Kaiserstrasse,,"9,21697","49,14221"
