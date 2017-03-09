@@ -252,7 +252,7 @@
     }).addTo(map);
 
     function onEachFeature(feature, layer) {
-        var popupContent = "<p>" + feature.properties['Strasse'] + '</p><p>' + feature.properties['Beschreibung'] + "</p>";
+        var popupContent = "<p style='font-size:16px'>" + feature.properties['Strasse'] + '</p>';
         if(feature.properties['Anker']) {
             popupContent = '<a href="' + feature.properties['Anker'] + '">' + popupContent + '</a>';
         }
