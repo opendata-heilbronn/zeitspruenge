@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.60.0/L.Control.Locate.min.css"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.60.0/L.Control.Locate.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.60.0/L.Control.Locate.min.js"
             charset="utf-8"></script>
@@ -288,6 +289,19 @@
     L.geoJSON([locations], {
         style: function (feature) {
             return feature.properties && feature.properties.style;
+        },
+
+        onEachFeature: function (feature, layer) {
+            var popupContent = "<p style='font-size:16px'>" + feature.properties['Strasse'] + '</p>';
+            layer.bindPopup(popupContent, {
+                maxWidth: 600
+            });
+            layer.on('mouseover', function () {
+                layer.openPopup();
+            });
+            layer.on('mouseout', function () {
+                layer.closePopup();
+            });
         },
 
         pointToLayer: function (feature, latlng) {
