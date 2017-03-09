@@ -52,8 +52,8 @@
 <body>
 <div class="control-top-right">
     <div class="toggle-container">
-        <div class="toggle-button toggle-historic active">historisch</div>
-        <div class="toggle-button toggle-current">aktuell</div>
+        <div class="toggle-button toggle-historic">historisch</div>
+        <div class="toggle-button toggle-current active">aktuell</div>
     </div>
 </div>
 
@@ -325,7 +325,7 @@
     L.control.locate().addTo(map);
 
     var layer = L.tileLayer('https://api.tiles.mapbox.com/v4/codeforheilbronn.dugwyvmr/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-        opacity: 1
+        opacity: 0
     });
     layer.addTo(map);
 
