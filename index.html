@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css" />
-    <script src="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css"/>
+    <script src="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js"
+            charset="utf-8"></script>
     <title>Zeitsprünge</title>
     <style>
         body, html {
@@ -248,34 +249,29 @@
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
         'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        id: 'codeforheilbronn.4jmvwd5z'
+        id: 'mapbox.light'
     }).addTo(map);
-
-    function onEachFeature(feature, layer) {
-        var popupContent = "<p style='font-size:16px'>" + feature.properties['Strasse'] + '</p>';
-        if(feature.properties['Anker']) {
-            popupContent = '<a href="' + feature.properties['Anker'] + '">' + popupContent + '</a>';
-        }
-        layer.bindPopup(popupContent, {
-            maxWidth: 600
-        });
-    }
 
     L.geoJSON([locations], {
         style: function (feature) {
             return feature.properties && feature.properties.style;
         },
 
-        onEachFeature: onEachFeature,
-
         pointToLayer: function (feature, latlng) {
-            return L.marker(latlng, {
+            var marker = L.circleMarker(latlng, {
+                radius: 8,
                 fillColor: "#ff7800",
                 color: "#000",
                 weight: 1,
                 opacity: 1,
-                fillOpacity: 1
+                fillOpacity: 0.8
             });
+
+            marker.on("click", function () {
+                window.location.href = feature.properties['Anker'];
+            });
+
+            return marker;
         }
     }).addTo(map);
 
