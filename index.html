@@ -7,6 +7,7 @@
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script src="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js"
             charset="utf-8"></script>
     <title>Zeitsprünge</title>
@@ -14,15 +15,47 @@
         body, html {
             margin: 0;
             padding: 0;
+            font-family: 'Open Sans', sans-serif;
         }
 
         #map {
             width: 100vw;
             height: 100vh;
         }
+
+        .control-top-right {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            z-index: 900;
+        }
+
+        .toggle-container {
+            display: flex;
+            border: 2px solid #BEBEBE;
+            border-radius: 4px;
+        }
+
+        .toggle-button {
+            padding: 6px 8px;
+            background: #FFF;
+            cursor: pointer;
+        }
+
+        .toggle-button.active {
+            background: #FFB44E;
+            border-right: 1px solid #BEBEBE;
+        }
     </style>
 </head>
 <body>
+<div class="control-top-right">
+    <div class="toggle-container">
+        <div class="toggle-button toggle-historic active">historisch</div>
+        <div class="toggle-button toggle-current">aktuell</div>
+    </div>
+</div>
+
 <div id="map"></div>
 
 <script>
@@ -268,7 +301,7 @@
             });
 
             marker.on("click", function () {
-                window.location.href = feature.properties['Anker'];
+                window.open(feature.properties['Anker'], '_parent');
             });
 
             return marker;
@@ -276,6 +309,20 @@
     }).addTo(map);
 
     L.control.locate().addTo(map);
+
+//    var layer = L.mapbox.tileLayer('codeforheilbronn.4jmvwd5z', {
+//        opacity: 0
+//    });
+//    layer.addTo(map);
+
+    var showCurrent = function () {
+        layer.setOpacity(0);
+    };
+    var showHistoric = function () {
+        layer.setOpacity(1);
+    };
+    document.querySelector('.toggle-current').addEventListener('click', showCurrent);
+    document.querySelector('.toggle-historic').addEventListener('click', showHistoric);
 </script>
 
 </body>
