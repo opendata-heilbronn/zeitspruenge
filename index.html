@@ -329,7 +329,9 @@
     });
     layer.addTo(map);
 
-    map.dragging.disable();
+    if(L.Browser.mobile) {
+        map.dragging.disable();
+    }
 
     var toggleCurrentButton = document.querySelector('.toggle-current');
     var toggleHistoricButton = document.querySelector('.toggle-historic');
