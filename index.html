@@ -329,6 +329,8 @@
     });
     layer.addTo(map);
 
+    map.dragging.disable();
+
     var toggleCurrentButton = document.querySelector('.toggle-current');
     var toggleHistoricButton = document.querySelector('.toggle-historic');
     var showCurrent = function () {
